@@ -10,10 +10,10 @@ script:
   - docker run -e CI=true axebite/react-test npm test
 
 after_success:
-  - docker build -t axebite/multi-client -f ./client
-  - docker build -t axebite/multi-nginx -f ./nginx
-  - docker build -t axebite/multi-server -f ./server
-  - docker build -t axebite/multi-worker -f ./worker
+  - docker build -t axebite/multi-client ./client
+  - docker build -t axebite/multi-nginx ./nginx
+  - docker build -t axebite/multi-server ./server
+  - docker build -t axebite/multi-worker ./worker
   # log in to docker CLI
   -  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take images and psuh to docker hub
